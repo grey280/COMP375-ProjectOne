@@ -19,10 +19,25 @@ class TipCalculatorViewController: UIViewController {
     @IBOutlet weak var tip: UILabel!
     @IBOutlet weak var perPerson: UILabel!
     
-    @IBAction func digitPress(_ sender: UIButton) {
+    var costD: Double { // an easier way to access the value of the cost as a double
+        get{
+            let costString = cost.text!
+            let ind = costString.index(costString.startIndex, offsetBy: 1)
+            let outString = costString.substring(from: ind)
+            return Double(outString)!
+        }
+        set{
+            let outString = "$" + String(newValue)
+            cost.text = outString
+        }
     }
     
-    @IBAction func deletePress(_ sender: UIButton) {
+    @IBAction func digitPress(_ sender: UIButton) {
+        print(costD)
+    }
+    
+    @IBAction func deletePress(_ sender: UIButton) { // reset
+        costD = 0.0
     }
     
     @IBAction func pointPress(_ sender: UIButton) {

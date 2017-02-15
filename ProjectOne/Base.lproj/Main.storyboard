@@ -292,7 +292,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMa-94-qRS">
                                                 <rect key="frame" x="218" y="0.0" width="109" height="99.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="⌫"/>
+                                                <state key="normal" title="clear">
+                                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="deletePress:" destination="n45-ip-Ub4" eventType="touchUpInside" id="aN1-A4-Fcp"/>
                                                 </connections>
