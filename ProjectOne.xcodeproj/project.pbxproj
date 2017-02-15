@@ -12,6 +12,7 @@
 		2D5E7CDB1E54BC1B007295A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D5E7CD91E54BC1B007295A7 /* Main.storyboard */; };
 		2D5E7CDD1E54BC1B007295A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D5E7CDC1E54BC1B007295A7 /* Assets.xcassets */; };
 		2D5E7CE01E54BC1B007295A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D5E7CDE1E54BC1B007295A7 /* LaunchScreen.storyboard */; };
+		2DE672AA1E54DD7100F5E341 /* TipCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE672A91E54DD7100F5E341 /* TipCalculatorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		2D5E7CDC1E54BC1B007295A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D5E7CDF1E54BC1B007295A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D5E7CE11E54BC1B007295A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DE672A91E54DD7100F5E341 /* TipCalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TipCalculatorViewController.swift; path = ../TipCalculatorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		2D5E7CD41E54BC1B007295A7 /* ProjectOne */ = {
 			isa = PBXGroup;
 			children = (
+				2DE672A91E54DD7100F5E341 /* TipCalculatorViewController.swift */,
 				2D5E7CD51E54BC1B007295A7 /* AppDelegate.swift */,
 				2D5E7CD71E54BC1B007295A7 /* ViewController.swift */,
 				2D5E7CD91E54BC1B007295A7 /* Main.storyboard */,
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D5E7CD81E54BC1B007295A7 /* ViewController.swift in Sources */,
+				2DE672AA1E54DD7100F5E341 /* TipCalculatorViewController.swift in Sources */,
 				2D5E7CD61E54BC1B007295A7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +306,7 @@
 				2D5E7CE61E54BC1B007295A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
