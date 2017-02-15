@@ -18,6 +18,7 @@ class TipCalculatorViewController: UIViewController {
     @IBOutlet weak var cost: UILabel!
     @IBOutlet weak var tip: UILabel!
     @IBOutlet weak var perPerson: UILabel!
+    @IBOutlet weak var pointButton: UIButton!
     
     var pointPressed = false, tenCent = false, hundredCent = false
     
@@ -91,10 +92,13 @@ class TipCalculatorViewController: UIViewController {
         pointPressed = false
         tenCent = false
         hundredCent = false
+        pointButton.isEnabled = true
     }
+    
     
     @IBAction func pointPress(_ sender: UIButton) { // press the decimal point! oh, this is gonna be fun
         pointPressed = true
+        pointButton.isEnabled = false
     }
     
     override func viewDidLoad() {
