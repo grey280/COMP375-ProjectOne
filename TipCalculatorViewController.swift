@@ -20,16 +20,41 @@ class TipCalculatorViewController: UIViewController {
     @IBOutlet weak var perPerson: UILabel!
     
     var pointPressed = false, tenCent = false, hundredCent = false
+    
+    func stringToDouble(input: String) -> Double{ // let's make this into a function, for reuse
+        let ind = input.index(input.startIndex, offsetBy: 1)
+        let outString = input.substring(from: ind)
+        return Double(outString)!
+    }
+    
     var costD: Double { // an easier way to access the value of the cost as a double
-        get{ // Double() can't deal with the $ in there, so strip it out and *then* cast
+        get{ // get the cost string - assume it's there since I'm always doing it properly
             let costString = cost.text!
-            let ind = costString.index(costString.startIndex, offsetBy: 1)
-            let outString = costString.substring(from: ind)
-            return Double(outString)!
+            return stringToDouble(input: costString)
         }
         set{ // this part is easy, just cast to string and add the $
             let outString = "$" + String(newValue)
             cost.text = outString
+        }
+    }
+    var tipD: Double { // an easier way to access the value of the tip as a double; copied from above
+        get{ // again, using the function to do the conversion
+            let tipString = tip.text!
+            return stringToDouble(input: tipString)
+        }
+        set{ // this part is easy, just cast to string and add the $
+            let outString = "$" + String(newValue)
+            tip.text = outString
+        }
+    }
+    var perPersonD: Double { // an easier way to access the value of the tip as a double; copied from above
+        get{ // again, using the function to do the conversion
+            let ppdString = perPerson.text!
+            return stringToDouble(input: ppdString)
+        }
+        set{ // this part is easy, just cast to string and add the $
+            let outString = "$" + String(newValue)
+            perPerson.text = outString
         }
     }
     
