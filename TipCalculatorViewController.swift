@@ -10,7 +10,7 @@ import UIKit
 
 class TipCalculatorViewController: UIViewController {
     
-    func calculateTip(people: Int, amount: Double, tip: Double = 0.15) -> Double{
+    func calculatePerPerson(people: Int, amount: Double, tip: Double = 0.15) -> Double{
         let total = amount * tip
         return total / Double(people)
     }
@@ -35,6 +35,11 @@ class TipCalculatorViewController: UIViewController {
         set{ // this part is easy, just cast to string and add the $
             let outString = "$" + String(newValue)
             cost.text = outString
+            
+            // and now our didSet-type bit: when cost changes, recalculate tip:
+            tipD = newValue * 0.15
+            // plus, calculate the per-person value:
+            // TODO: per-person value stuff; can't do until I've implemented the amount of people
         }
     }
     var tipD: Double { // an easier way to access the value of the tip as a double; copied from above
@@ -42,8 +47,8 @@ class TipCalculatorViewController: UIViewController {
             let tipString = tip.text!
             return stringToDouble(input: tipString)
         }
-        set{ // this part is easy, just cast to string and add the $
-            let outString = "$" + String(newValue)
+        set{ // make it in the format $0.00 - only two digits after the decimal!
+            let outString = String.localizedStringWithFormat("$%.2f", newValue)
             tip.text = outString
         }
     }
@@ -52,8 +57,8 @@ class TipCalculatorViewController: UIViewController {
             let ppdString = perPerson.text!
             return stringToDouble(input: ppdString)
         }
-        set{ // this part is easy, just cast to string and add the $
-            let outString = "$" + String(newValue)
+        set{
+            let outString = String.localizedStringWithFormat("$%.2f", newValue)
             perPerson.text = outString
         }
     }
@@ -86,7 +91,6 @@ class TipCalculatorViewController: UIViewController {
     @IBAction func pointPress(_ sender: UIButton) { // press the decimal point! oh, this is gonna be fun
         pointPressed = true
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
