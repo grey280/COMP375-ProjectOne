@@ -190,16 +190,25 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="109" height="99.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="1"/>
+                                                <connections>
+                                                    <action selector="digitPress:" destination="n45-ip-Ub4" eventType="touchUpInside" id="4Gk-E0-Xsq"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DAG-rR-wZ5">
                                                 <rect key="frame" x="109" y="0.0" width="109" height="99.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="2"/>
+                                                <connections>
+                                                    <action selector="digitPress:" destination="n45-ip-Ub4" eventType="touchUpInside" id="hYo-dg-OAi"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1P-Lz-Z08">
                                                 <rect key="frame" x="218" y="0.0" width="109" height="99.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="3"/>
+                                                <connections>
+                                                    <action selector="digitPress:" destination="n45-ip-Ub4" eventType="touchUpInside" id="xFx-ZJ-Irc"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -210,16 +219,25 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="109" height="99.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="4"/>
+                                                <connections>
+                                                    <action selector="digitPress:" destination="n45-ip-Ub4" eventType="touchUpInside" id="RXz-Si-sIE"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27Z-IL-QfG">
                                                 <rect key="frame" x="109" y="0.0" width="109" height="99.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="5"/>
+                                                <connections>
+                                                    <action selector="digitPress:" destination="n45-ip-Ub4" eventType="touchUpInside" id="JXi-iP-JB0"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uH8-T1-rI0">
                                                 <rect key="frame" x="218" y="0.0" width="109" height="99.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="6"/>
+                                                <connections>
+                                                    <action selector="digitPress:" destination="n45-ip-Ub4" eventType="touchUpInside" id="F1u-8h-noM"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -230,16 +248,25 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="109" height="99"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="7"/>
+                                                <connections>
+                                                    <action selector="digitPress:" destination="n45-ip-Ub4" eventType="touchUpInside" id="Egi-qc-sPz"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRw-4k-FM2">
                                                 <rect key="frame" x="109" y="0.0" width="109" height="99"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="8"/>
+                                                <connections>
+                                                    <action selector="digitPress:" destination="n45-ip-Ub4" eventType="touchUpInside" id="0eT-Ve-Vk3"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gH3-vG-d1e">
                                                 <rect key="frame" x="218" y="0.0" width="109" height="99"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="9"/>
+                                                <connections>
+                                                    <action selector="digitPress:" destination="n45-ip-Ub4" eventType="touchUpInside" id="D2v-cj-IKO"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -250,16 +277,25 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="109" height="99.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="."/>
+                                                <connections>
+                                                    <action selector="pointPress:" destination="n45-ip-Ub4" eventType="touchUpInside" id="fHU-uT-pAE"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iF6-Gr-ARc">
                                                 <rect key="frame" x="109" y="0.0" width="109" height="99.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="0"/>
+                                                <connections>
+                                                    <action selector="digitPress:" destination="n45-ip-Ub4" eventType="touchUpInside" id="z04-Uf-1ew"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMa-94-qRS">
                                                 <rect key="frame" x="218" y="0.0" width="109" height="99.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="⌫"/>
+                                                <connections>
+                                                    <action selector="deletePress:" destination="n45-ip-Ub4" eventType="touchUpInside" id="aN1-A4-Fcp"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -284,6 +320,11 @@
                             <constraint firstAttribute="trailingMargin" secondItem="dcm-fX-7zh" secondAttribute="trailing" constant="8" id="ubr-6B-NcH"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cost" destination="Zoh-bg-Kvr" id="LVW-xU-j8h"/>
+                        <outlet property="perPerson" destination="Mo8-re-Y2E" id="u3p-di-eis"/>
+                        <outlet property="tip" destination="HLk-zF-J0S" id="AH0-Io-Adr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kea-AN-Qfa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
