@@ -33,13 +33,13 @@ class TipCalculatorViewController: UIViewController {
             return stringToDouble(input: costString)
         }
         set{ // this part is easy, just cast to string and add the $
-            let outString = "$" + String(newValue)
+            let outString = String.localizedStringWithFormat("$%.2f", newValue)
             cost.text = outString
             
             // and now our didSet-type bit: when cost changes, recalculate tip:
             tipD = newValue * 0.15
             // plus, calculate the per-person value:
-            // TODO: per-person value stuff; can't do until I've implemented the amount of people
+            perPersonD = (newValue + tipD)/Double(peopleCount)
         }
     }
     var tipD: Double { // an easier way to access the value of the tip as a double; copied from above
@@ -60,6 +60,11 @@ class TipCalculatorViewController: UIViewController {
         set{
             let outString = String.localizedStringWithFormat("$%.2f", newValue)
             perPerson.text = outString
+        }
+    }
+    var peopleCount: Int {
+        get{ // TODO: actually get this number, probably from a private variable? or replace or w/e
+            return 1 // don't leave it as 0, then the per-person cost is INFINITY
         }
     }
     
