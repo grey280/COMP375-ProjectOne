@@ -10,31 +10,21 @@ import UIKit
 
 class TipCalculatorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    private func calculatePerPerson(people: Int, amount: Double, tip: Double = 0.15) -> Double{
-        let total = amount * tip
-        return total / Double(people)
-    }
-    
+    // All the outlets!
     @IBOutlet private weak var cost: UILabel!
     @IBOutlet private weak var tip: UILabel!
     @IBOutlet private weak var perPerson: UILabel!
     @IBOutlet private weak var pointButton: UIButton!
     @IBOutlet weak var peopleCountPicker: UIPickerView!
     
+    // Some tracking stuff for decimal-point functionality
     private var pointPressed = false, tenCent = false, hundredCent = false
-    
-    private func stringToDouble(input: String) -> Double{ // let's make this into a function, for reuse
-        let ind = input.index(input.startIndex, offsetBy: 1)
-        let outString = input.substring(from: ind)
-        return Double(outString)!
-    }
-    
+    // Main variables
     var peopleCount = 0{
-        didSet{
+        didSet{ // When the UIPickerView picks something, it sets this, so we'll do our processing here.
             perPersonD = (costD + tipD)/Double(peopleCount)
         }
     }
-    
     var costD: Double { // an easier way to access the value of the cost as a double
         get{ // get the cost string - assume it's there since I'm always doing it properly
             let costString = cost.text!
@@ -71,6 +61,7 @@ class TipCalculatorViewController: UIViewController, UIPickerViewDelegate, UIPic
         }
     }
     
+    // Actions
     @IBAction func digitPress(_ sender: UIButton) { // handle a digit press
         let digitPressed = Double(sender.title(for: .normal)!)!
         if costD == 0 && !pointPressed{
@@ -97,30 +88,37 @@ class TipCalculatorViewController: UIViewController, UIPickerViewDelegate, UIPic
         pointButton.isEnabled = true
     }
     
-    
     @IBAction func pointPress(_ sender: UIButton) { // press the decimal point! oh, this is gonna be fun
         pointPressed = true
         pointButton.isEnabled = false
     }
     
-    func numberOfComponents(in: UIPickerView)->Int{ // no work needed
+    // Utility function
+    private func stringToDouble(input: String) -> Double{ // let's make this into a function, for reuse
+        let ind = input.index(input.startIndex, offsetBy: 1)
+        let outString = input.substring(from: ind)
+        return Double(outString)!
+    }
+    
+    // Here's where all the UIPickerView stuff comes in
+    func numberOfComponents(in: UIPickerView)->Int{ // How many columns? Only 1.
         return 1
     }
     
-    func pickerView(_: UIPickerView, numberOfRowsInComponent: Int)->Int{
+    func pickerView(_: UIPickerView, numberOfRowsInComponent: Int)->Int{ // We're going to go with a constant number of rows, 20.
         return 20
     }
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?{
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?{ // Gets a String? to fill each spot in the picker. Since it's only got one component, we ignore that, and otherwise we just want index+1 so it's 1-based and not 0-based. Users get confused by things like that.
         return String(row+1)
     }
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){ // Respond to the user picking something.
         peopleCount = row + 1
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // Initialize our UIPickerView - trying to stick this somewhere else would *probably* make problems
         peopleCountPicker.delegate = self
         peopleCountPicker.dataSource = self
     }
