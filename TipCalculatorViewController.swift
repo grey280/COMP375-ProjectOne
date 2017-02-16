@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TipCalculatorViewController: UIViewController {
+class TipCalculatorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     private func calculatePerPerson(people: Int, amount: Double, tip: Double = 0.15) -> Double{
         let total = amount * tip
@@ -19,6 +19,7 @@ class TipCalculatorViewController: UIViewController {
     @IBOutlet private weak var tip: UILabel!
     @IBOutlet private weak var perPerson: UILabel!
     @IBOutlet private weak var pointButton: UIButton!
+    @IBOutlet weak var peopleCountPicker: UIPickerView!
     
     private var pointPressed = false, tenCent = false, hundredCent = false
     
@@ -26,6 +27,12 @@ class TipCalculatorViewController: UIViewController {
         let ind = input.index(input.startIndex, offsetBy: 1)
         let outString = input.substring(from: ind)
         return Double(outString)!
+    }
+    
+    var peopleCount = 0{
+        didSet{
+            perPersonD = (costD + tipD)/Double(peopleCount)
+        }
     }
     
     var costD: Double { // an easier way to access the value of the cost as a double
@@ -63,11 +70,6 @@ class TipCalculatorViewController: UIViewController {
             perPerson.text = outString
         }
     }
-    var peopleCount: Int {
-        get{ // TODO: actually get this number, probably from a private variable? or replace or w/e
-            return 1 // don't leave it as 0, then the per-person cost is INFINITY
-        }
-    }
     
     @IBAction func digitPress(_ sender: UIButton) { // handle a digit press
         let digitPressed = Double(sender.title(for: .normal)!)!
@@ -101,9 +103,26 @@ class TipCalculatorViewController: UIViewController {
         pointButton.isEnabled = false
     }
     
+    func numberOfComponents(in: UIPickerView)->Int{ // no work needed
+        return 1
+    }
+    
+    func pickerView(_: UIPickerView, numberOfRowsInComponent: Int)->Int{
+        return 20
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?{
+        return String(row+1)
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
+        peopleCount = row + 1
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        peopleCountPicker.delegate = self
+        peopleCountPicker.dataSource = self
     }
     
     override func didReceiveMemoryWarning() {

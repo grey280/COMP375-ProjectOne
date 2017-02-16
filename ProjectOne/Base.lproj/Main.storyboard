@@ -337,6 +337,7 @@
                     </view>
                     <connections>
                         <outlet property="cost" destination="Zoh-bg-Kvr" id="LVW-xU-j8h"/>
+                        <outlet property="peopleCountPicker" destination="i6V-3f-3dm" id="FxU-KF-XnE"/>
                         <outlet property="perPerson" destination="Mo8-re-Y2E" id="u3p-di-eis"/>
                         <outlet property="pointButton" destination="fQc-a8-WcC" id="O9n-pV-hHc"/>
                         <outlet property="tip" destination="HLk-zF-J0S" id="AH0-Io-Adr"/>
