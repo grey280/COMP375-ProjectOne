@@ -10,19 +10,19 @@ import UIKit
 
 class TipCalculatorViewController: UIViewController {
     
-    func calculatePerPerson(people: Int, amount: Double, tip: Double = 0.15) -> Double{
+    private func calculatePerPerson(people: Int, amount: Double, tip: Double = 0.15) -> Double{
         let total = amount * tip
         return total / Double(people)
     }
     
-    @IBOutlet weak var cost: UILabel!
-    @IBOutlet weak var tip: UILabel!
-    @IBOutlet weak var perPerson: UILabel!
-    @IBOutlet weak var pointButton: UIButton!
+    @IBOutlet private weak var cost: UILabel!
+    @IBOutlet private weak var tip: UILabel!
+    @IBOutlet private weak var perPerson: UILabel!
+    @IBOutlet private weak var pointButton: UIButton!
     
-    var pointPressed = false, tenCent = false, hundredCent = false
+    private var pointPressed = false, tenCent = false, hundredCent = false
     
-    func stringToDouble(input: String) -> Double{ // let's make this into a function, for reuse
+    private func stringToDouble(input: String) -> Double{ // let's make this into a function, for reuse
         let ind = input.index(input.startIndex, offsetBy: 1)
         let outString = input.substring(from: ind)
         return Double(outString)!
