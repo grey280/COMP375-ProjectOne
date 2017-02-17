@@ -12,6 +12,7 @@ import Foundation
 class UnitConverterViewController: UIViewController {
     // Outlets
     @IBOutlet private weak var outputAmountL: UILabel!
+    @IBOutlet weak var inputField: UITextField!
     
     // Variables
     private var fromMetric = true // default to Metric->Imperial conversion
@@ -32,13 +33,12 @@ class UnitConverterViewController: UIViewController {
     }
     
     // Helper Functions
-    func doConversion(from: Measurement<UnitLength>, to: UnitLength) -> Measurement<UnitLength>{
-        var outMeasure = Measurement(value: 0, unit:to)
-        outMeasure = from.converted(to: to)
-        return outMeasure
+    func convertUnit(from: Measurement<UnitLength>, to outputType: UnitLength) -> Measurement<UnitLength>{ // actually do the conversion
+        return from.converted(to: outputType)
     }
+    
     // IB Functions
-    @IBAction private func editingDidEnd(_ sender: UITextField) {
+    @IBAction private func editingDidEnd(_ sender: UITextField) { // User finished putting text into the input field
         
     }
     
@@ -47,6 +47,7 @@ class UnitConverterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        inputField.becomeFirstResponder()
     }
     
     override func didReceiveMemoryWarning() {

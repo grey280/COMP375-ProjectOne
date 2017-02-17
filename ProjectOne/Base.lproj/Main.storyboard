@@ -73,7 +73,7 @@
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMF-UM-dQa">
                                 <rect key="frame" x="16" y="110" width="155" height="216"/>
                             </pickerView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5h8-JJ-uzE">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5h8-JJ-uzE">
                                 <rect key="frame" x="16" y="72" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -124,6 +124,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="inputField" destination="5h8-JJ-uzE" id="Qtt-dU-U71"/>
                         <outlet property="outputAmountL" destination="Byf-ry-Lmr" id="2sh-xN-9OW"/>
                     </connections>
                 </viewController>
