@@ -13,6 +13,7 @@ class TipCalculatorViewController: UIViewController, UIPickerViewDelegate, UIPic
     // All the outlets!
     @IBOutlet private weak var cost: UILabel!
     @IBOutlet private weak var tip: UILabel!
+    @IBOutlet weak var total: UILabel!
     @IBOutlet private weak var perPerson: UILabel!
     @IBOutlet private weak var pointButton: UIButton!
     @IBOutlet weak var peopleCountPicker: UIPickerView!
@@ -20,7 +21,7 @@ class TipCalculatorViewController: UIViewController, UIPickerViewDelegate, UIPic
     // Some tracking stuff for decimal-point functionality
     private var pointPressed = false, tenCent = false, hundredCent = false
     // Main variables
-    var peopleCount = 0{
+    var peopleCount = 1{
         didSet{ // When the UIPickerView picks something, it sets this, so we'll do our processing here.
             perPersonD = (costD + tipD)/Double(peopleCount)
         }
@@ -36,6 +37,7 @@ class TipCalculatorViewController: UIViewController, UIPickerViewDelegate, UIPic
             
             // and now our didSet-type bit: when cost changes, recalculate tip:
             tipD = newValue * 0.15
+            totalD = newValue * 1.15
             // plus, calculate the per-person value:
             perPersonD = (newValue + tipD)/Double(peopleCount)
         }
@@ -48,6 +50,16 @@ class TipCalculatorViewController: UIViewController, UIPickerViewDelegate, UIPic
         set{ // make it in the format $0.00 - only two digits after the decimal!
             let outString = String.localizedStringWithFormat("$%.2f", newValue)
             tip.text = outString
+        }
+    }
+    var totalD: Double { // an easier way to access the value of the total as a double; copied from above
+        get{ // again, using the function to do the conversion
+            let totalString = total.text!
+            return stringToDouble(input: totalString)
+        }
+        set{ // make it in the format $0.00 - only two digits after the decimal!
+            let outString = String.localizedStringWithFormat("$%.2f", newValue)
+            total.text = outString
         }
     }
     var perPersonD: Double { // an easier way to access the value of the tip as a double; copied from above
