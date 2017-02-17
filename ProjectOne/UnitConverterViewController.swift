@@ -15,8 +15,8 @@ class UnitConverterViewController: UIViewController {
     
     // Variables
     private var fromMetric = true // default to Metric->Imperial conversion
-    private var fromUnit = Measurement(value: 0, unit: UnitLength.kilometers)
-    private var toUnit = Measurement(value: 0, unit: UnitLength.kilometers)
+    private var fromUnit: UnitLength = .kilometers
+    private var toUnit:UnitLength = .kilometers
     
     // Complicated Variables
     var output: String{
@@ -32,8 +32,11 @@ class UnitConverterViewController: UIViewController {
     }
     
     // Helper Functions
-    
-    
+    func doConversion(from: Measurement<UnitLength>, to: UnitLength) -> Measurement<UnitLength>{
+        var outMeasure = Measurement(value: 0, unit:to)
+        outMeasure = from.converted(to: to)
+        return outMeasure
+    }
     // IB Functions
     @IBAction private func editingDidEnd(_ sender: UITextField) {
         
