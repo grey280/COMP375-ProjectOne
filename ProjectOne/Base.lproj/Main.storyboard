@@ -78,6 +78,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="editingDidEnd:" destination="Jby-ku-cFj" eventType="editingDidEnd" id="4Dz-u9-emf"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9it-Om-dA9">
                                 <rect key="frame" x="110" y="352" width="154" height="30"/>
@@ -120,6 +123,9 @@
                             <constraint firstAttribute="leadingMargin" secondItem="zMF-UM-dQa" secondAttribute="leading" id="uKX-kn-xm6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="outputAmountL" destination="Byf-ry-Lmr" id="2sh-xN-9OW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OV2-ng-3ce" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

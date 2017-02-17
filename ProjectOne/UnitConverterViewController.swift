@@ -7,8 +7,39 @@
 //
 
 import UIKit
+import Foundation
 
 class UnitConverterViewController: UIViewController {
+    // Outlets
+    @IBOutlet private weak var outputAmountL: UILabel!
+    
+    // Variables
+    private var fromMetric = true // default to Metric->Imperial conversion
+    private var fromUnit = Measurement(value: 0, unit: UnitLength.kilometers)
+    private var toUnit = Measurement(value: 0, unit: UnitLength.kilometers)
+    
+    // Complicated Variables
+    var output: String{
+        get{
+            return outputAmountL.text!
+        }
+        set{
+            // TODO: Handle actually setting the stuff here
+            let outputString = "foo"
+            
+            outputAmountL.text = outputString
+        }
+    }
+    
+    // Helper Functions
+    
+    
+    // IB Functions
+    @IBAction private func editingDidEnd(_ sender: UITextField) {
+        
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
