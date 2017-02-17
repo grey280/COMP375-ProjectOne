@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -31,10 +30,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Tip Calculator"/>
                                         <connections>
-                                            <segue destination="n45-ip-Ub4" kind="show" identifier="tipCalculator" id="KgD-j2-Je3">
-                                                <segue key="commit" inheritsFrom="parent" id="1at-tU-Gid"/>
-                                                <segue key="preview" inheritsFrom="commit" id="qMk-Yn-7sd"/>
-                                            </segue>
+                                            <segue destination="n45-ip-Ub4" kind="show" identifier="tipCalculator" id="KgD-j2-Je3"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0u-gd-nBQ">
@@ -42,10 +38,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Unit Converter"/>
                                         <connections>
-                                            <segue destination="Jby-ku-cFj" kind="show" identifier="unitConverter" id="Xlr-X1-Zyq">
-                                                <segue key="commit" inheritsFrom="parent" id="SGb-yW-P7R"/>
-                                                <segue key="preview" inheritsFrom="commit" id="emV-eT-oOh"/>
-                                            </segue>
+                                            <segue destination="Jby-ku-cFj" kind="show" identifier="unitConverter" id="Xlr-X1-Zyq"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -414,8 +407,4 @@
             <point key="canvasLocation" x="140" y="137.18140929535232"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Xlr-X1-Zyq"/>
-        <segue reference="KgD-j2-Je3"/>
-    </inferredMetricsTieBreakers>
 </document>
