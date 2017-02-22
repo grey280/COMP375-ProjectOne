@@ -44,18 +44,13 @@ class UnitConverterViewController: UIViewController, UIPickerViewDelegate, UIPic
     func doUpdate(){ // Does the conversion and stuff
         let outputAmount = Measurement(value: inputAmount, unit: fromUnit) // TODO: make tempVar be the input amount
         let outputString = convertUnit(from: outputAmount, to: toUnit)
-        // print("Setting output to \(outputString.description) when inputAmount is \(inputAmount)")
-//        output = outputString.description
-        
-        
         let outStringValue = String.localizedStringWithFormat("%.2f", outputString.value)
-        let outStringUnit = foundationUnitsToUnits[outputString.unit]
+        let outStringUnit = foundationUnitsToUnits[outputString.unit]!
         output = "\(outStringValue) \(outStringUnit)"
     }
     
     // IB Functions
     @IBAction private func editingDidEnd(_ sender: UITextField) { // User finished putting text into the input field
-        print("function triggered")
         inputAmount = Double(sender.text!) ?? 0.0
         doUpdate()
     }
