@@ -86,6 +86,9 @@
                                 <rect key="frame" x="110" y="352" width="154" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Switch Metric/Imperial"/>
+                                <connections>
+                                    <action selector="switchUnits:" destination="Jby-ku-cFj" eventType="touchUpInside" id="SG3-37-5ct"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9r-JW-x8q">
                                 <rect key="frame" x="179" y="208" width="16" height="21"/>
@@ -125,7 +128,9 @@
                     </view>
                     <connections>
                         <outlet property="inputField" destination="5h8-JJ-uzE" id="Qtt-dU-U71"/>
+                        <outlet property="leftPicker" destination="zMF-UM-dQa" id="sEy-DN-wtQ"/>
                         <outlet property="outputAmountL" destination="Byf-ry-Lmr" id="2sh-xN-9OW"/>
+                        <outlet property="rightPicker" destination="ZM1-QH-7zN" id="qmu-8D-ir9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OV2-ng-3ce" userLabel="First Responder" sceneMemberID="firstResponder"/>
