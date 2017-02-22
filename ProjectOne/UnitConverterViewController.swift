@@ -21,10 +21,10 @@ class UnitConverterViewController: UIViewController, UIPickerViewDelegate, UIPic
     private var fromUnit:UnitLength = .kilometers // defaults Kilometers -> Kilometers. Sensical!
     private var toUnit:UnitLength = .kilometers
     // All the units we can use. If adding, amke sure to update the dictionaries as well!
-    private let units = ["kilometers", "meters", "centimeters", "millimeters", "inches", "feet", "miles"]
+    private let units = ["kilometers", "meters", "centimeters", "millimeters", "inches", "feet", "yards", "miles"]
     // Dictionaries so we can have nice conversion from UnitLength to String and back
-    private let unitsToFoundationUnits:[String: UnitLength] = ["kilometers": .kilometers, "meters": .meters, "centimeters": .centimeters, "millimeters": .millimeters, "inches": .inches, "feet": .feet, "miles": .miles]
-    private let foundationUnitsToUnits:[UnitLength: String] = [.kilometers: "kilometers", .meters: "meters", .centimeters: "centimeters", .millimeters: "millimeters", .inches: "inches", .feet: "feet", .miles: "miles"]
+    private let unitsToFoundationUnits:[String: UnitLength] = ["kilometers": .kilometers, "meters": .meters, "centimeters": .centimeters, "millimeters": .millimeters, "inches": .inches, "feet": .feet, "miles": .miles, "yards": .yards]
+    private let foundationUnitsToUnits:[UnitLength: String] = [.kilometers: "kilometers", .meters: "meters", .centimeters: "centimeters", .millimeters: "millimeters", .inches: "inches", .feet: "feet", .miles: "miles", .yards: "yards"]
     // An easy way to store the input amount
     private var inputAmount = 0.0
     
