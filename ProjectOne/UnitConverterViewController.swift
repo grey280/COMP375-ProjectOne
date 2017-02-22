@@ -18,14 +18,13 @@ class UnitConverterViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     // Variables
     private var fromMetric = true // default to Metric->Imperial conversion
-    private var fromUnit:UnitLength = .kilometers // defaults Kilometers -> Inches
-    private var toUnit:UnitLength = .inches
+    private var fromUnit:UnitLength = .kilometers // defaults Kilometers -> Kilometers. Sensical!
+    private var toUnit:UnitLength = .kilometers
     // All the units we can use. If adding, amke sure to update the dictionaries as well!
-    private let metricUnits = ["kilometers", "meters", "centimeters", "millimeters"]
-    private let imperialUnits = ["inches", "feet", "miles"]
+    private let units = ["kilometers", "meters", "centimeters", "millimeters", "inches", "feet", "yards", "miles"]
     // Dictionaries so we can have nice conversion from UnitLength to String and back
-    private let unitsToFoundationUnits:[String: UnitLength] = ["kilometers": .kilometers, "meters": .meters, "centimeters": .centimeters, "millimeters": .millimeters, "inches": .inches, "feet": .feet, "miles": .miles]
-    private let foundationUnitsToUnits:[UnitLength: String] = [.kilometers: "kilometers", .meters: "meters", .centimeters: "centimeters", .millimeters: "millimeters", .inches: "inches", .feet: "feet", .miles: "miles"]
+    private let unitsToFoundationUnits:[String: UnitLength] = ["kilometers": .kilometers, "meters": .meters, "centimeters": .centimeters, "millimeters": .millimeters, "inches": .inches, "feet": .feet, "miles": .miles, "yards": .yards]
+    private let foundationUnitsToUnits:[UnitLength: String] = [.kilometers: "kilometers", .meters: "meters", .centimeters: "centimeters", .millimeters: "millimeters", .inches: "inches", .feet: "feet", .miles: "miles", .yards: "yards"]
     // An easy way to store the input amount
     private var inputAmount = 0.0
     
@@ -41,26 +40,26 @@ class UnitConverterViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
     
     // Helper Functions
-    func convertUnit(from: Measurement<UnitLength>, to outputType: UnitLength) -> Measurement<UnitLength>{ // actually do the conversion
+    private func convertUnit(from: Measurement<UnitLength>, to outputType: UnitLength) -> Measurement<UnitLength>{ // actually do the conversion
         return from.converted(to: outputType)
     }
-    func doUpdate(){ // Does the conversion and stuff
+    private func doUpdate(){ // Does the conversion and stuff
         let outputAmount = Measurement(value: inputAmount, unit: fromUnit)
         let outputString = convertUnit(from: outputAmount, to: toUnit)
-        let outStringValue = String.localizedStringWithFormat("%.4f", outputString.value)
+        // let outStringValue = String.localizedStringWithFormat("%.4f", outputString.value)
+        let outStringValue = String(roundTo(input: outputString.value, places: 4))
         let outStringUnit = foundationUnitsToUnits[outputString.unit]!
+        
         output = "\(outStringValue) \(outStringUnit)"
+    }
+    private func roundTo(input: Double, places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (input * divisor).rounded() / divisor
     }
     
     // IB Functions
     @IBAction private func editingDidEnd(_ sender: UITextField) { // User finished putting text into the input field
         inputAmount = Double(sender.text!) ?? 0.0
-        doUpdate()
-    }
-    @IBAction func switchUnits(_ sender: UIButton) {
-        fromMetric = !fromMetric
-        leftPicker.reloadComponent(0)
-        rightPicker.reloadComponent(0)
         doUpdate()
     }
     
@@ -71,30 +70,10 @@ class UnitConverterViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent: Int)->Int{ // how many rows in the picker?
-        if pickerView == leftPicker{
-            if fromMetric{
-                return metricUnits.count
-            }
-            return imperialUnits.count
-        }else{
-            if fromMetric{
-                return imperialUnits.count
-            }
-            return metricUnits.count
-        }
+        return units.count
     }
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?{ // Gets a String? to fill each spot in the picker. Since it's only got one component, we ignore that. Figuring out which picker to go with and how to return the thing is slightly more interesting.
-        if pickerView == leftPicker{
-            if fromMetric{
-                return metricUnits[row]
-            }
-            return imperialUnits[row]
-        }else{
-            if fromMetric{
-                return imperialUnits[row]
-            }
-            return metricUnits[row]
-        }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?{ // Get the unit name
+        return units[row]
     }
     func pickerView(_ pickerViewUsed: UIPickerView, didSelectRow row: Int, inComponent component: Int){ // Respond to the user picking something.
         let unitSelected = pickerView(pickerViewUsed, titleForRow: row, forComponent: component)!
@@ -106,15 +85,17 @@ class UnitConverterViewController: UIViewController, UIPickerViewDelegate, UIPic
         }
         doUpdate()
     }
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        inputField.becomeFirstResponder()
         leftPicker.delegate = self
         rightPicker.delegate = self
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        inputField.becomeFirstResponder() // Pull up the keyboard for the user
     }
     
     override func didReceiveMemoryWarning() {
