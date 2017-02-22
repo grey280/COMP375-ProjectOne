@@ -83,9 +83,13 @@ class UnitConverterViewController: UIViewController, UIPickerViewDelegate, UIPic
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        inputField.becomeFirstResponder()
         leftPicker.delegate = self
         rightPicker.delegate = self
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        inputField.becomeFirstResponder() // Pull up the keyboard for the user
     }
     
     override func didReceiveMemoryWarning() {
