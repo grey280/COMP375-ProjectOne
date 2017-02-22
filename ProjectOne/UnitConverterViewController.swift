@@ -19,21 +19,21 @@ class UnitConverterViewController: UIViewController, UIPickerViewDelegate, UIPic
     // Variables
     private var fromMetric = true // default to Metric->Imperial conversion
     private var fromUnit:UnitLength = .kilometers
-    private var toUnit:UnitLength = .kilometers
+    private var toUnit:UnitLength = .inches
     private let metricUnits = ["kilometers", "meters", "centimeters", "millimeters"]
     private let imperialUnits = ["inches", "feet", "miles"]
     private let unitsToFoundationUnits:[String: UnitLength] = ["kilometers": .kilometers, "meters": .meters, "centimeters": .centimeters, "millimeters": .millimeters, "inches": .inches, "feet": .feet, "miles": .miles]
+    private let foundationUnitsToUnits:[UnitLength: String] = [.kilometers: "kilometers", .meters: "meters", .centimeters: "centimeters", .millimeters: "millimeters", .inches: "inches", .feet: "feet", .miles: "miles"]
     private var inputAmount = 0.0
     
     
     // Complicated Variables
-    var output: String{
+    var output: String{ // Just a slightly easier interface
         get{
             return outputAmountL.text!
         }
         set{
             outputAmountL.text = newValue
-            // TODO: Handle actually setting the stuff here
         }
     }
     
@@ -41,11 +41,16 @@ class UnitConverterViewController: UIViewController, UIPickerViewDelegate, UIPic
     func convertUnit(from: Measurement<UnitLength>, to outputType: UnitLength) -> Measurement<UnitLength>{ // actually do the conversion
         return from.converted(to: outputType)
     }
-    func doUpdate(){
+    func doUpdate(){ // Does the conversion and stuff
         let outputAmount = Measurement(value: inputAmount, unit: fromUnit) // TODO: make tempVar be the input amount
         let outputString = convertUnit(from: outputAmount, to: toUnit)
-        print("Setting output to \(outputString.description) when inputAmount is \(inputAmount)")
-        output = outputString.description
+        // print("Setting output to \(outputString.description) when inputAmount is \(inputAmount)")
+//        output = outputString.description
+        
+        
+        let outStringValue = String.localizedStringWithFormat("%.2f", outputString.value)
+        let outStringUnit = foundationUnitsToUnits[outputString.unit]
+        output = "\(outStringValue) \(outStringUnit)"
     }
     
     // IB Functions
@@ -100,6 +105,7 @@ class UnitConverterViewController: UIViewController, UIPickerViewDelegate, UIPic
         }else{
             toUnit = foundationUnitSelected
         }
+        doUpdate()
     }
 
     
