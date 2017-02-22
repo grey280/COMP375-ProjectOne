@@ -79,7 +79,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
-                                    <action selector="editingDidEnd:" destination="Jby-ku-cFj" eventType="editingDidEnd" id="4Dz-u9-emf"/>
+                                    <action selector="editingDidEnd:" destination="Jby-ku-cFj" eventType="editingChanged" id="xQ2-Gv-3oa"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9it-Om-dA9">
@@ -102,10 +102,9 @@
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZM1-QH-7zN">
                                 <rect key="frame" x="204" y="110" width="155" height="216"/>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Byf-ry-Lmr">
-                                <rect key="frame" x="158" y="323" width="59" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0 miles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Byf-ry-Lmr">
+                                <rect key="frame" x="16" y="323" width="343" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -116,14 +115,17 @@
                             <constraint firstItem="5h8-JJ-uzE" firstAttribute="top" secondItem="p62-Ok-wct" secondAttribute="bottom" constant="8" id="9mt-ES-fMu"/>
                             <constraint firstItem="w9r-JW-x8q" firstAttribute="centerX" secondItem="sCc-2b-GaM" secondAttribute="centerX" id="BzB-Ei-sYu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZM1-QH-7zN" secondAttribute="trailing" id="D77-hN-ieo"/>
+                            <constraint firstItem="Byf-ry-Lmr" firstAttribute="top" secondItem="zMF-UM-dQa" secondAttribute="bottom" constant="-3" id="Gw2-xg-49x"/>
                             <constraint firstItem="zMF-UM-dQa" firstAttribute="top" secondItem="5h8-JJ-uzE" secondAttribute="bottom" constant="8" id="JEi-ei-nYR"/>
                             <constraint firstItem="w9r-JW-x8q" firstAttribute="centerY" secondItem="zMF-UM-dQa" secondAttribute="centerY" id="Mp2-Hd-7nH"/>
+                            <constraint firstItem="Byf-ry-Lmr" firstAttribute="centerX" secondItem="sCc-2b-GaM" secondAttribute="centerX" id="V3M-3I-neI"/>
                             <constraint firstItem="w9r-JW-x8q" firstAttribute="leading" secondItem="zMF-UM-dQa" secondAttribute="trailing" constant="8" id="g3f-yI-Wtm"/>
                             <constraint firstAttribute="leadingMargin" secondItem="5h8-JJ-uzE" secondAttribute="leading" id="iRr-Em-85b"/>
                             <constraint firstItem="ZM1-QH-7zN" firstAttribute="leading" secondItem="w9r-JW-x8q" secondAttribute="trailing" constant="9" id="ikN-sp-ckc"/>
                             <constraint firstItem="5h8-JJ-uzE" firstAttribute="centerX" secondItem="sCc-2b-GaM" secondAttribute="centerX" id="okx-8u-XGT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5h8-JJ-uzE" secondAttribute="trailing" id="rld-60-55n"/>
                             <constraint firstAttribute="leadingMargin" secondItem="zMF-UM-dQa" secondAttribute="leading" id="uKX-kn-xm6"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Byf-ry-Lmr" secondAttribute="leading" id="vQz-k9-f2l"/>
                         </constraints>
                     </view>
                     <connections>

@@ -20,8 +20,10 @@ class UnitConverterViewController: UIViewController, UIPickerViewDelegate, UIPic
     private var fromMetric = true // default to Metric->Imperial conversion
     private var fromUnit:UnitLength = .kilometers
     private var toUnit:UnitLength = .kilometers
-    private var metricUnits = ["kilometers", "meters", "centimeters", "millimeters"]
-    private var imperialUnits = ["inches", "feet", "miles"]
+    private let metricUnits = ["kilometers", "meters", "centimeters", "millimeters"]
+    private let imperialUnits = ["inches", "feet", "miles"]
+    private let unitsToFoundationUnits:[String: UnitLength] = ["kilometers": .kilometers, "meters": .meters, "centimeters": .centimeters, "millimeters": .millimeters, "inches": .inches, "feet": .feet, "miles": .miles]
+    private var inputAmount = 0.0
     
     
     // Complicated Variables
@@ -30,10 +32,8 @@ class UnitConverterViewController: UIViewController, UIPickerViewDelegate, UIPic
             return outputAmountL.text!
         }
         set{
+            outputAmountL.text = newValue
             // TODO: Handle actually setting the stuff here
-            let outputString = "foo"
-            
-            outputAmountL.text = outputString
         }
     }
     
@@ -41,10 +41,18 @@ class UnitConverterViewController: UIViewController, UIPickerViewDelegate, UIPic
     func convertUnit(from: Measurement<UnitLength>, to outputType: UnitLength) -> Measurement<UnitLength>{ // actually do the conversion
         return from.converted(to: outputType)
     }
+    func doUpdate(){
+        let outputAmount = Measurement(value: inputAmount, unit: fromUnit) // TODO: make tempVar be the input amount
+        let outputString = convertUnit(from: outputAmount, to: toUnit)
+        print("Setting output to \(outputString.description) when inputAmount is \(inputAmount)")
+        output = outputString.description
+    }
     
     // IB Functions
     @IBAction private func editingDidEnd(_ sender: UITextField) { // User finished putting text into the input field
-        
+        print("function triggered")
+        inputAmount = Double(sender.text!) ?? 0.0
+        doUpdate()
     }
     @IBAction func switchUnits(_ sender: UIButton) {
         fromMetric = !fromMetric
@@ -84,8 +92,14 @@ class UnitConverterViewController: UIViewController, UIPickerViewDelegate, UIPic
             return metricUnits[row]
         }
     }
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){ // Respond to the user picking something.
-        
+    func pickerView(_ pickerViewUsed: UIPickerView, didSelectRow row: Int, inComponent component: Int){ // Respond to the user picking something.
+        let unitSelected = pickerView(pickerViewUsed, titleForRow: row, forComponent: component)!
+        let foundationUnitSelected = unitsToFoundationUnits[unitSelected]!
+        if pickerViewUsed == leftPicker{
+            fromUnit = foundationUnitSelected
+        }else{
+            toUnit = foundationUnitSelected
+        }
     }
 
     
