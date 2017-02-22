@@ -18,12 +18,15 @@ class UnitConverterViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     // Variables
     private var fromMetric = true // default to Metric->Imperial conversion
-    private var fromUnit:UnitLength = .kilometers
+    private var fromUnit:UnitLength = .kilometers // defaults Kilometers -> Inches
     private var toUnit:UnitLength = .inches
+    // All the units we can use. If adding, amke sure to update the dictionaries as well!
     private let metricUnits = ["kilometers", "meters", "centimeters", "millimeters"]
     private let imperialUnits = ["inches", "feet", "miles"]
+    // Dictionaries so we can have nice conversion from UnitLength to String and back
     private let unitsToFoundationUnits:[String: UnitLength] = ["kilometers": .kilometers, "meters": .meters, "centimeters": .centimeters, "millimeters": .millimeters, "inches": .inches, "feet": .feet, "miles": .miles]
     private let foundationUnitsToUnits:[UnitLength: String] = [.kilometers: "kilometers", .meters: "meters", .centimeters: "centimeters", .millimeters: "millimeters", .inches: "inches", .feet: "feet", .miles: "miles"]
+    // An easy way to store the input amount
     private var inputAmount = 0.0
     
     
@@ -42,9 +45,9 @@ class UnitConverterViewController: UIViewController, UIPickerViewDelegate, UIPic
         return from.converted(to: outputType)
     }
     func doUpdate(){ // Does the conversion and stuff
-        let outputAmount = Measurement(value: inputAmount, unit: fromUnit) // TODO: make tempVar be the input amount
+        let outputAmount = Measurement(value: inputAmount, unit: fromUnit)
         let outputString = convertUnit(from: outputAmount, to: toUnit)
-        let outStringValue = String.localizedStringWithFormat("%.2f", outputString.value)
+        let outStringValue = String.localizedStringWithFormat("%.4f", outputString.value)
         let outStringUnit = foundationUnitsToUnits[outputString.unit]!
         output = "\(outStringValue) \(outStringUnit)"
     }
@@ -58,6 +61,7 @@ class UnitConverterViewController: UIViewController, UIPickerViewDelegate, UIPic
         fromMetric = !fromMetric
         leftPicker.reloadComponent(0)
         rightPicker.reloadComponent(0)
+        doUpdate()
     }
     
     
