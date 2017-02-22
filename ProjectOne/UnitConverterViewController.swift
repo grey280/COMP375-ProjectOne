@@ -40,15 +40,21 @@ class UnitConverterViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
     
     // Helper Functions
-    func convertUnit(from: Measurement<UnitLength>, to outputType: UnitLength) -> Measurement<UnitLength>{ // actually do the conversion
+    private func convertUnit(from: Measurement<UnitLength>, to outputType: UnitLength) -> Measurement<UnitLength>{ // actually do the conversion
         return from.converted(to: outputType)
     }
-    func doUpdate(){ // Does the conversion and stuff
+    private func doUpdate(){ // Does the conversion and stuff
         let outputAmount = Measurement(value: inputAmount, unit: fromUnit)
         let outputString = convertUnit(from: outputAmount, to: toUnit)
-        let outStringValue = String.localizedStringWithFormat("%.4f", outputString.value)
+        // let outStringValue = String.localizedStringWithFormat("%.4f", outputString.value)
+        let outStringValue = String(roundTo(input: outputString.value, places: 4))
         let outStringUnit = foundationUnitsToUnits[outputString.unit]!
+        
         output = "\(outStringValue) \(outStringUnit)"
+    }
+    private func roundTo(input: Double, places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (input * divisor).rounded() / divisor
     }
     
     // IB Functions
