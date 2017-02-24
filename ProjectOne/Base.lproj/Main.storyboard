@@ -27,6 +27,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s5a-3x-r32">
                                         <rect key="frame" x="0.0" y="0.0" width="327" height="261.5"/>
+                                        <accessibility key="accessibilityConfiguration" hint="Opens the tip calculator" label="Tip Calculator"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Tip Calculator"/>
                                         <connections>
@@ -35,6 +36,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0u-gd-nBQ">
                                         <rect key="frame" x="0.0" y="261.5" width="327" height="261.5"/>
+                                        <accessibility key="accessibilityConfiguration" hint="Opens the unit converter" label="Unit Converter"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Unit Converter"/>
                                         <connections>
@@ -75,6 +77,7 @@
                             </pickerView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5h8-JJ-uzE">
                                 <rect key="frame" x="16" y="72" width="343" height="30"/>
+                                <accessibility key="accessibilityConfiguration" hint="Input the number to be converted" label="Input"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
@@ -151,6 +154,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6j-qF-R4j">
                                                 <rect key="frame" x="0.0" y="0.0" width="114.5" height="99.5"/>
+                                                <accessibility key="accessibilityConfiguration" hint="Enter 1" label="1"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="1"/>
                                                 <connections>
@@ -159,6 +163,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DAG-rR-wZ5">
                                                 <rect key="frame" x="114.5" y="0.0" width="114" height="99.5"/>
+                                                <accessibility key="accessibilityConfiguration" hint="Enter 2" label="2"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="2"/>
                                                 <connections>
@@ -167,6 +172,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1P-Lz-Z08">
                                                 <rect key="frame" x="228.5" y="0.0" width="114.5" height="99.5"/>
+                                                <accessibility key="accessibilityConfiguration" hint="Enter 3" label="3"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="3"/>
                                                 <connections>
@@ -180,6 +186,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pEb-g3-6QX">
                                                 <rect key="frame" x="0.0" y="0.0" width="114.5" height="99"/>
+                                                <accessibility key="accessibilityConfiguration" hint="Enter 4" label="4"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="4"/>
                                                 <connections>
@@ -188,6 +195,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27Z-IL-QfG">
                                                 <rect key="frame" x="114.5" y="0.0" width="114" height="99"/>
+                                                <accessibility key="accessibilityConfiguration" hint="Enter 5" label="5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="5"/>
                                                 <connections>
@@ -196,6 +204,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uH8-T1-rI0">
                                                 <rect key="frame" x="228.5" y="0.0" width="114.5" height="99"/>
+                                                <accessibility key="accessibilityConfiguration" hint="Enter 6" label="6"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="6"/>
                                                 <connections>
@@ -209,6 +218,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLK-q0-RNl">
                                                 <rect key="frame" x="0.0" y="0.0" width="114.5" height="99.5"/>
+                                                <accessibility key="accessibilityConfiguration" hint="Enter 7" label="7"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="7"/>
                                                 <connections>
@@ -217,6 +227,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRw-4k-FM2">
                                                 <rect key="frame" x="114.5" y="0.0" width="114" height="99.5"/>
+                                                <accessibility key="accessibilityConfiguration" hint="Enter 8" label="8"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="8"/>
                                                 <connections>
@@ -225,6 +236,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gH3-vG-d1e">
                                                 <rect key="frame" x="228.5" y="0.0" width="114.5" height="99.5"/>
+                                                <accessibility key="accessibilityConfiguration" hint="Enter 9" label="9"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="9"/>
                                                 <connections>
@@ -238,6 +250,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQc-a8-WcC">
                                                 <rect key="frame" x="0.0" y="0.0" width="114.5" height="99"/>
+                                                <accessibility key="accessibilityConfiguration" hint="Enters a decimal point" label="Decimal point"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <state key="normal" title="."/>
                                                 <state key="disabled">
@@ -249,6 +262,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iF6-Gr-ARc">
                                                 <rect key="frame" x="114.5" y="0.0" width="114" height="99"/>
+                                                <accessibility key="accessibilityConfiguration" hint="Enter 0" label="0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="0"/>
                                                 <connections>
@@ -257,6 +271,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMa-94-qRS">
                                                 <rect key="frame" x="228.5" y="0.0" width="114.5" height="99"/>
+                                                <accessibility key="accessibilityConfiguration" hint="Clears the current input" label="Clear"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="clear">
                                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -362,6 +377,7 @@
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i6V-3f-3dm">
                                         <rect key="frame" x="171.5" y="0.0" width="171.5" height="106"/>
+                                        <accessibility key="accessibilityConfiguration" hint="Select the number of people in the party" label="People"/>
                                     </pickerView>
                                 </subviews>
                             </stackView>
