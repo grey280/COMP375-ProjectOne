@@ -58,13 +58,13 @@ class UnitConverterViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
     
     // IB Functions
-    @IBAction private func editingDidEnd(_ sender: UITextField) { // User finished putting text into the input field
+    @IBAction private func editingDidEnd(_ sender: UITextField) { // Used to detect input happening. Fires *after* the UITextField delegate stuff below
         inputAmount = Double(sender.text!) ?? 0.0
         doUpdate()
     }
     
     
-    // Here's where all the UIPickerView stuff comes in
+    // UIPickerView delegate stuff
     func numberOfComponents(in: UIPickerView)->Int{ // How many columns? Only 1.
         return 1
     }
@@ -85,6 +85,8 @@ class UnitConverterViewController: UIViewController, UIPickerViewDelegate, UIPic
         }
         doUpdate()
     }
+    
+    // UITextField delegate stuff
     func  textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool { // Only allow numbers and decimal point - iPad doesn't have a digit-only keyboard.
         
         let set = NSCharacterSet(charactersIn: "0123456789.")
@@ -92,11 +94,12 @@ class UnitConverterViewController: UIViewController, UIPickerViewDelegate, UIPic
         
         let filtered = string.components(separatedBy: inverted).joined(separator: "")
         return filtered == string;
+        // Note: can't do the doUpdate() stuff in here, because detecting the actual contents of the textField doesn't work right in here - this event fires *before* it updates, so you'd have to manually figure out the new value. Easier to leave in the IBAction up above.
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // Attach our delegates:
         leftPicker.delegate = self
         rightPicker.delegate = self
         inputField.delegate = self
