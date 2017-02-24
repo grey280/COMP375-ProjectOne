@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class UnitConverterViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class UnitConverterViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     // Outlets
     @IBOutlet private weak var outputAmountL: UILabel!
     @IBOutlet weak var inputField: UITextField!
@@ -85,12 +85,21 @@ class UnitConverterViewController: UIViewController, UIPickerViewDelegate, UIPic
         }
         doUpdate()
     }
+    func  textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool { // Only allow numbers and decimal point - iPad doesn't have a digit-only keyboard.
+        
+        let set = NSCharacterSet(charactersIn: "0123456789.")
+        let inverted = set.inverted;
+        
+        let filtered = string.components(separatedBy: inverted).joined(separator: "")
+        return filtered == string;
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         leftPicker.delegate = self
         rightPicker.delegate = self
+        inputField.delegate = self
         
     }
     override func viewDidAppear(_ animated: Bool) {
